@@ -54,13 +54,13 @@ let test_update_add =
   let m = Ptmap.update 2 (fun _ -> Some true) (list_to_map [3; 1; 4; 6; 5]) in
   match Ptmap.find_opt 2 m with
   | Some true -> assert true
-  | _ -> assert true
+  | _ -> assert false
 
 let test_update_update =
   let m = Ptmap.update 2 (fun _ -> Some false) (list_to_map [3; 1; 2; 4; 6; 5]) in
   match Ptmap.find_opt 2 m with
   | Some false -> assert true
-  | _ -> assert true
+  | _ -> assert false
 
 let main () =
   test Ptmap.empty Ptmap.add Ptmap.mem;
